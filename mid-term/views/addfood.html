@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Add Food Page!</title>
+    </head>
+ 
+    <body>
+        <h1> This is the Add Food Page </h1>
+        <p>Please fill in related data to add food to the database</p>
+
+        <form method= "POST" action= "/topic7/mid-term/foodadded">
+            Food name: 
+            <input id="Food name: " type="text" name="name" value="foodname"> <br></br>
+            Typical Values per:
+            <input id="Typical values per: " type="number" step="any" name="typical_values_per" value="0"> <br></br>
+            Units of Typical Value - Measurement:
+            <input id="Units of measurement: " type="text" name="unit_measurement" value="unitOfMeasurement"> <br></br>
+            Calories:
+            <input id="Calories: " type="number" step="any" name="calories" value="0"> <br></br>
+            Carbs:
+            <input id="Carbs: " type="number" step="any" name="carbs" value="0"> <br></br>
+            Fat:
+            <input id="Fat: " type="number" step="any" name="fat" value="0"> <br></br>
+            Protein:
+            <input id="Protein: " type="number" step="any" name="protein" value="0"> <br></br>
+            Salt:
+            <input id="Salt: " type="number" step="any" name="salt" value="0"> <br></br>
+            Sugar:
+            <input id="Sugar: " type="number" step="any" name="sugar" value="0"> <br></br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <br>
+        <a href="/topic7/mid-term/home">Home</a> <br>
+        <a href="/topic7/mid-term/addfood">Add Food</a> <br>
+        <a href="/topic7/mid-term/search">Search Food</a> <br>
+        <a href="/topic7/mid-term/update">Update Food</a> <br>
+        <a href="/topic7/mid-term/list">View all the food</a>
+
+    </body>
+</html>

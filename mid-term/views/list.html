@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+padding: 5px;
+   }
+</style>
+
+<title>Food List Page!</title>
+</head>
+<body>
+<h1> This is Food List Page </h1>
+<h3>You can see names and nutritional facts of all available foods stored here:</h3>
+
+<table style="width:70%">
+    
+    <tr>
+        <th>Select</th>
+        <th>Quantity</th>
+        <th>Food Name</th>
+        <th>Typical Values Per</th>
+        <th>Unit of Typical Values </th>
+        <th>Calories</th>
+        <th>Carbs</th>
+        <th>Fat</th>
+        <th>Protein</th>
+        <th>Salt</th>
+        <th>Sugar</th>
+    </tr>
+
+    <% 
+    availableFood.forEach(function(food){ 
+    %>
+
+    <tr>
+        <td><input type="checkbox"></td>
+        <td><input type="number" style="width:20px;" id = "amount" name="amount" value="1" /> </td>
+        <td><%= food.name %></td>
+        <td><%= food.typical_values_per %></td>
+        <td><%= food.unit_measurement %></td>
+        <td><%= food.calories %></td>
+        <td><%= food.carbs %></td>
+        <td><%= food.fat %></td>
+        <td><%= food.protein %></td>
+        <td><%= food.salt %></td>
+        <td><%= food.sugar %></td>
+    </tr>
+
+    <script type="text/javascript">
+        function retrieveValue(){
+            //Reference the Table
+            var grid = document.getElementById("food");
+
+            //Reference the Checkboxes in Table
+            var checkBoxes = grid.getElementsByTagName("INPUT");
+            var calories = 0;
+            var carbs = 0;
+            var fat = 0;
+            var protein = 0;
+            var salt = 0;
+            var sugar = 0;
+            var message = " ";
+
+            //Loop through Checkboxes
+            for (var i = 0; i < checkBoxes.length; i++) {
+                if (checkBoxes[i].checked){
+                    var row = checkBoxes[i].parentNode.parentNode;
+                    var count = quantity.rows[1].cells.length;
+                    calories+=parseFloat(row.cells[5].innerHTML)
+                    carbs+=parseFloat(row.cells[6].innerHTML)
+                    fat+=parseFloat(row.cells[7].innerHTML)
+                    protein+=parseFloat(row.cells[8].innerHTML)
+                    salt+=parseFloat(row.cells[9].innerHTML)
+                    sugar+=parseFloat(row.cells[10].innerHTML)
+                }
+            }
+
+            //Dipslay selected row data in Alert Box
+            //Alert(message);
+            alert(message)
+        }
+    </script>
+
+    <% }) %>
+</table>
+
+<input onclick="retrieveValue()" type = "submit"  value="Submit">
+
+</body>
+
+<br>
+<a href="/topic7/mid-term/home">Home</a> <br>
+<a href="/topic7/mid-term/about">About Food</a> <br>
+<a href="/topic7/mid-term/addfood">Add Food</a> <br>
+<a href="/topic7/mid-term/search">Search Food</a> <br>
+<a href="/topic7/mid-term/update">Update Food</a>
+
+
+</html>

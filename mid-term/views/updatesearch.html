@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Update Food Page!</title>
+    </head>
+ 
+    <body>
+
+        <h1> This is the Update Food Page </h1>
+        <p>Feel free to update or delete your food.</p>
+
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+            padding: 5px;
+               }
+        </style>
+            
+            <h2>You can see names and nutritional facts of the searched food here:</h2>
+            
+            <table style="width:70%">
+                
+                <tr>
+                    <th>Food Name</th>
+                    <th>Typical Values Per</th>
+                    <th>Unit of Typical Values </th>
+                    <th>Calories</th>
+                    <th>Carbs</th>
+                    <th>Fat</th>
+                    <th>Protein</th>
+                    <th>Salt</th>
+                    <th>Sugar</th>
+                </tr>
+            
+                <% 
+                availableFood.forEach(function(food){ 
+                %>
+            
+                <tr>
+                    <td><%= food.name %></td>
+                    <td><%= food.typical_values_per %></td>
+                    <td><%= food.unit_measurement %></td>
+                    <td><%= food.calories %></td>
+                    <td><%= food.carbs %></td>
+                    <td><%= food.fat %></td>
+                    <td><%= food.protein %></td>
+                    <td><%= food.salt %></td>
+                    <td><%= food.sugar %></td>
+                </tr>
+            
+                <% }) %>
+            </table>
+        <br></br>    
+        <p>Please key in related data field to update food with new values: </p>
+        <form method= "POST" action= "/topic7/mid-term/foodupdated">
+            Food name: 
+            <input id="Food name: " type="text" name="name" value="foodname"> <br></br>
+            Typical Values per:
+            <input id="Typical values per: " type="number" step="any" name="typical_values_per" value="0"> <br></br>
+            Units of Typical Value - Measurement:
+            <input id="Units of measurement: " type="text" name="unit_measurement" value="unitOfMeasurement"> <br></br>
+            Calories:
+            <input id="Calories: " type="number" step="any" name="calories" value="0"> <br></br>
+            Carbs:
+            <input id="Carbs: " type="number" step="any" name="carbs" value="0"> <br></br>
+            Fat:
+            <input id="Fat: " type="number" step="any" name="fat" value="0"> <br></br>
+            Protein:
+            <input id="Protein: " type="number" step="any" name="protein" value="0"> <br></br>
+            Salt:
+            <input id="Salt: " type="number" step="any" name="salt" value="0"> <br></br>
+            Sugar:
+            <input id="Sugar: " type="number" step="any" name="sugar" value="0"> <br></br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <br></br> 
+        <p>Please key in the desired food to be deleted from database</p>
+        <form method= "POST" action= "/topic7/mid-term/deletefood" onsubmit="return confirm('Are you sure?') ">
+            Food name: 
+            <input id="Food name: " type="text" name="name" value="foodname"> <br></br>
+            <button>
+            <input type="hidden" name="delete" value="">
+            Delete
+            </button>
+        </form>
+
+        <br>
+        <p>Other links:</p>
+        <a href="/topic7/mid-term/home">Home</a>
+        <a href="/topic7/mid-term/addfood">Add Food</a>
+        <a href="/topic7/mid-term/search">Search Food</a>
+        <a href="/topic7/mid-term/list">View all the food</a>
+
+    </body>
+</html>
